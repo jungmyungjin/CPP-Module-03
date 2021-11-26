@@ -6,6 +6,8 @@ ClapTrap::ClapTrap(void)
 	hitPoint_ = 10;
 	energyPoint_ = 10;
 	attackDamage_ = 0;
+	maxHitPoint_ = hitPoint_;
+	maxEnergyPoint_ = energyPoint_;
 	std::cout << "[ ClapTrap is created. ]" << std::endl;
 }
 
@@ -15,6 +17,8 @@ ClapTrap::ClapTrap(std::string _name)
 	hitPoint_ = 10;
 	energyPoint_ = 10;
 	attackDamage_ = 0;
+	maxHitPoint_ = hitPoint_;
+	maxEnergyPoint_ = energyPoint_;
 	std::cout << "[ ClapTrap \"" << name_ << "\" is created. ]" << std::endl;
 }
 
@@ -31,6 +35,8 @@ ClapTrap::ClapTrap(const ClapTrap &target)
 	hitPoint_ = target.hitPoint_;
 	energyPoint_ = target.energyPoint_;
 	attackDamage_ = target.attackDamage_;
+	maxHitPoint_ = target.hitPoint_;
+	maxEnergyPoint_ = target.energyPoint_;
 }
 
 
@@ -41,6 +47,8 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &target)
 	hitPoint_ = target.hitPoint_;
 	energyPoint_ = target.energyPoint_;
 	attackDamage_ = target.attackDamage_;
+	maxHitPoint_ = target.hitPoint_;
+	maxEnergyPoint_ = target.energyPoint_;
 
 	return (*this);
 }
@@ -61,10 +69,12 @@ void ClapTrap::attack(std::string const &_target)
 		std::cout << " has no energy... " << std::endl;
 		return ;
 	}
+	
+	energyPoint_-= 10;
 	printName();
 	std::cout <<" attacks " << _target << ", ";
-	std::cout <<"causing " << attackDamage_ << " points of damage!" << std::endl;
-	energyPoint_--;
+	std::cout <<"causing " << attackDamage_ << " points of damage! ";
+	std::cout << "(energyPoint_ : " << energyPoint_ << ")" << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int _amount)
@@ -81,14 +91,14 @@ void ClapTrap::takeDamage(unsigned int _amount)
 
 void ClapTrap::beRepaired(unsigned int _amount)
 {
-	if (hitPoint_ + _amount >= 10)
-		hitPoint_ = 10;
+	if (hitPoint_ + _amount >= maxHitPoint_)
+		hitPoint_ = maxHitPoint_;
 	else
 		hitPoint_ += _amount;
 
 	printName();
 	std::cout <<"has been repaired by " << _amount << ", ";
-	std::cout <<"points! [MAX:10]";
+	std::cout <<"points! [MAX:" << maxHitPoint_ << "]";
 	std::cout <<"(HP : " << hitPoint_ << ")" << std::endl;
 
 }
