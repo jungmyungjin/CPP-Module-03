@@ -1,6 +1,14 @@
 #include "ClapTrap.hpp"
 
-// Constructor
+//  생성자
+ClapTrap::ClapTrap(void)
+{
+	hitPoint_ = 10;
+	energyPoint_ = 10;
+	attackDamage_ = 0;
+	std::cout << "[ ClapTrap is created. ]" << std::endl;
+}
+
 ClapTrap::ClapTrap(std::string _name)
 {
 	name_ = _name;
@@ -10,13 +18,35 @@ ClapTrap::ClapTrap(std::string _name)
 	std::cout << "[ ClapTrap \"" << name_ << "\" is created. ]" << std::endl;
 }
 
-// Destructor
+// 소멸자
 ClapTrap::~ClapTrap()
 {
 	std::cout << "[ ClapTrap \"" << name_ << "\" is destroyed. ]" << std::endl;
 }
 
-// Function
+// 복사 생성자
+ClapTrap::ClapTrap(const ClapTrap &target)
+{
+	name_ = target.name_;
+	hitPoint_ = target.hitPoint_;
+	energyPoint_ = target.energyPoint_;
+	attackDamage_ = target.attackDamage_;
+}
+
+
+// 할당 연산자 오버로딩 (깊은 복사 / 사실 이걸 굳이 하지 안하도 디폴트 대입 연산인 된다)
+ClapTrap &ClapTrap::operator=(const ClapTrap &target)
+{
+	name_ = target.name_;
+	hitPoint_ = target.hitPoint_;
+	energyPoint_ = target.energyPoint_;
+	attackDamage_ = target.attackDamage_;
+
+	return (*this);
+}
+
+
+// 함수
 void ClapTrap::attack(std::string const &_target)
 {
 	if (hitPoint_ <= 0)
@@ -68,15 +98,3 @@ void ClapTrap::printName()
 	std::cout << "<" << "ClapTrap" << " \"";
 	std::cout << name_ << "\" > ";
 }
-
-// 대입 연산자 오버로딩 (깊은 복사 / 사실 이걸 굳이 하지 안하도 디폴트 대입 연산인 된다)
-ClapTrap &ClapTrap::operator=(const ClapTrap &target)
-{
-	name_ = target.name_;
-	hitPoint_ = target.hitPoint_;
-	energyPoint_ = target.energyPoint_;
-	attackDamage_ = target.attackDamage_;
-
-	return (*this);
-}
-

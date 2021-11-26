@@ -1,5 +1,4 @@
 SRCS = ./main.cpp \
-	./ClapTrap.hpp \
 	./ClapTrap.cpp
 
 CC = clang++
