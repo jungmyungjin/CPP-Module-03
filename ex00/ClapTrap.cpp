@@ -6,8 +6,6 @@ ClapTrap::ClapTrap(void)
 	hitPoint_ = 10;
 	energyPoint_ = 10;
 	attackDamage_ = 0;
-	maxHitPoint_ = hitPoint_;
-	maxEnergyPoint_ = energyPoint_;
 	std::cout << "[ ClapTrap is created. ]" << std::endl;
 }
 
@@ -17,15 +15,20 @@ ClapTrap::ClapTrap(std::string _name)
 	hitPoint_ = 10;
 	energyPoint_ = 10;
 	attackDamage_ = 0;
-	maxHitPoint_ = hitPoint_;
-	maxEnergyPoint_ = energyPoint_;
 	std::cout << "[ ClapTrap \"" << name_ << "\" is created. ]" << std::endl;
 }
 
 // 소멸자
 ClapTrap::~ClapTrap()
 {
-	std::cout << "[ ClapTrap \"" << name_ << "\" is destroyed. ]" << std::endl;
+	if (name_ != "")
+	{
+		std::cout << "[ ClapTrap \"" << name_ << "\" is destroyed. ]" << std::endl;
+	}
+	else
+	{
+		std::cout << "[ ClapTrap is destroyed. ]" << std::endl;
+	}
 }
 
 // 복사 생성자
@@ -33,10 +36,6 @@ ClapTrap::ClapTrap(const ClapTrap &target)
 {
 	name_ = target.name_;
 	hitPoint_ = target.hitPoint_;
-	energyPoint_ = target.energyPoint_;
-	attackDamage_ = target.attackDamage_;
-	maxHitPoint_ = target.hitPoint_;
-	maxEnergyPoint_ = target.energyPoint_;
 }
 
 
@@ -47,8 +46,6 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &target)
 	hitPoint_ = target.hitPoint_;
 	energyPoint_ = target.energyPoint_;
 	attackDamage_ = target.attackDamage_;
-	maxHitPoint_ = target.hitPoint_;
-	maxEnergyPoint_ = target.energyPoint_;
 
 	return (*this);
 }
@@ -69,7 +66,7 @@ void ClapTrap::attack(std::string const &_target)
 		std::cout << " has no energy... " << std::endl;
 		return ;
 	}
-	
+
 	energyPoint_-= 10;
 	printName();
 	std::cout <<" attacks " << _target << ", ";
@@ -91,14 +88,10 @@ void ClapTrap::takeDamage(unsigned int _amount)
 
 void ClapTrap::beRepaired(unsigned int _amount)
 {
-	if (hitPoint_ + _amount >= maxHitPoint_)
-		hitPoint_ = maxHitPoint_;
-	else
-		hitPoint_ += _amount;
+	hitPoint_ += _amount;
 
 	printName();
 	std::cout <<"has been repaired by " << _amount << ", ";
-	std::cout <<"points! [MAX:" << maxHitPoint_ << "]";
 	std::cout <<"(HP : " << hitPoint_ << ")" << std::endl;
 
 }
