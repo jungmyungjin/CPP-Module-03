@@ -27,7 +27,7 @@ ScavTrap::~ScavTrap()
 }
 void ScavTrap::guardGate()
 {
-	std::cout << "[ ScavTrap guard gate ]" << std::endl;
+	std::cout << "[ ScavTrap has entered the gate keeper board ]" << std::endl;
 
 }
 
