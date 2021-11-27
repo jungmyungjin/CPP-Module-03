@@ -75,6 +75,6 @@ void ScavTrap::beRepaired(unsigned int _amount)
 
 void ScavTrap::printName()
 {
-	std::cout << "<" << "ClapTrap" << " \"";
+	std::cout << "<" << "ScavTrap" << " \"";
 	std::cout << name_ << "\" > ";
 }
