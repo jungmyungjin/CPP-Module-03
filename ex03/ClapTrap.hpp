@@ -1,12 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mjung <mjung@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/12 15:12:24 by mjung             #+#    #+#             */
+/*   Updated: 2021/12/12 15:12:27 by mjung            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef CLAPTRAP_H
 #define CLAPTRAP_H
 
 #include <iostream>
 #include <string>
-# define C_HP 10
-# define C_EP 10
-# define C_AD 0
 
 class ClapTrap
 {
@@ -29,6 +37,10 @@ public :
 	 void takeDamage(unsigned int _amount);
 	 void beRepaired(unsigned int _amount);
 	 void printName(void);
+
+	 int getHp(void) const;
+	 unsigned int getEp(void) const;
+	 unsigned int getAd(void) const;
 
 protected:
 	std::string name_;

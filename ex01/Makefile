@@ -3,7 +3,7 @@ SRCS = ./main.cpp \
 	./ScavTrap.cpp
 
 CC = clang++
-NAME = claptrap
+NAME = ScavTrap
 
 CFLANG = -Wall -Wextra -Werror -std=c++98
 OBJS = $(SRCS:.cpp=.o)

@@ -1,6 +1,14 @@
-//
-// Created by 정명진 on 2021/11/27.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mjung <mjung@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/12 15:07:48 by mjung             #+#    #+#             */
+/*   Updated: 2021/12/12 15:07:51 by mjung            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
@@ -105,3 +113,19 @@ void ScavTrap::printName()
 	std::cout << "<" << "ScavTrap" << " \"";
 	std::cout << name_ << "\" > ";
 }
+
+int ScavTrap::getHp() const
+{
+	return (hitPoint_);
+}
+
+unsigned int ScavTrap::getEp() const
+{
+	return (energyPoint_);
+}
+
+unsigned int ScavTrap::getAd() const
+{
+	return (attackDamage_);
+}
+

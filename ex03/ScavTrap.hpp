@@ -1,10 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mjung <mjung@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/12 15:07:52 by mjung             #+#    #+#             */
+/*   Updated: 2021/12/12 15:12:52 by mjung            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SCAVTRAP_HPP
 #define SCAVTRAP_HPP
 
 #include "ClapTrap.hpp"
-# define S_HP 100
-# define S_EP 50
-# define S_AD 20
 
 class ScavTrap : virtual public ClapTrap
 {
@@ -21,6 +30,9 @@ public:
 	void takeDamage(unsigned int _amount) ;
 	void beRepaired(unsigned int _amount) ;
 
+	int getHp(void) const;
+	unsigned int getEp(void) const;
+	unsigned int getAd(void) const;
 
 protected:
 	std::string name_;

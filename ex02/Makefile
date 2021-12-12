@@ -4,7 +4,7 @@ SRCS = ./main.cpp \
 	./FragTrap.cpp
 
 CC = clang++
-NAME = claptrap
+NAME = FragTrap
 
 CFLANG = -Wall -Wextra -Werror -std=c++98
 OBJS = $(SRCS:.cpp=.o)

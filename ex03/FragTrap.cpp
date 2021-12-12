@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mjung <mjung@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/12 15:12:41 by mjung             #+#    #+#             */
+/*   Updated: 2021/12/12 15:12:42 by mjung            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "FragTrap.hpp"
 
 FragTrap::FragTrap(void)
@@ -102,3 +114,19 @@ void FragTrap::printName()
 	std::cout << "<" << "FragTrap" << " \"";
 	std::cout << name_ << "\" > ";
 }
+
+int FragTrap::getHp() const
+{
+	return (hitPoint_);
+}
+
+unsigned int FragTrap::getEp() const
+{
+	return (energyPoint_);
+}
+
+unsigned int FragTrap::getAd() const
+{
+	return (attackDamage_);
+}
+

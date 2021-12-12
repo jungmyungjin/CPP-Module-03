@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mjung <mjung@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/10 18:59:07 by mjung             #+#    #+#             */
+/*   Updated: 2021/12/10 18:59:08 by mjung            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ClapTrap.hpp"
 
 //  생성자
@@ -37,7 +49,6 @@ ClapTrap::ClapTrap(const ClapTrap &target)
 	name_ = target.name_;
 	hitPoint_ = target.hitPoint_;
 }
-
 
 // 할당 연산자 오버로딩 (깊은 복사 / 사실 이걸 굳이 하지 안하도 디폴트 대입 연산인 된다)
 ClapTrap &ClapTrap::operator=(const ClapTrap &target)

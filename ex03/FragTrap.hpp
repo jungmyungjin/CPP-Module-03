@@ -1,10 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mjung <mjung@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/12 15:12:44 by mjung             #+#    #+#             */
+/*   Updated: 2021/12/12 15:12:45 by mjung            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FRAGTRAP_HPP
 #define FRAGTRAP_HPP
 
 #include "ClapTrap.hpp"
-# define F_HP 100
-# define F_EP 100
-# define F_AD 30
 
 class FragTrap : virtual public ClapTrap
 {
@@ -20,6 +29,10 @@ public:
 	void attack(std::string const &_target) ;
 	void takeDamage(unsigned int _amount) ;
 	void beRepaired(unsigned int _amount) ;
+
+	int getHp(void) const;
+	unsigned int getEp(void) const;
+	unsigned int getAd(void) const;
 
 private:
 	std::string name_;

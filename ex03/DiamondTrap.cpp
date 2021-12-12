@@ -1,15 +1,23 @@
-//
-// Created by 정명진 on 2021/11/27.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mjung <mjung@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/12 15:12:31 by mjung             #+#    #+#             */
+/*   Updated: 2021/12/12 15:12:36 by mjung            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
 DiamondTrap::DiamondTrap(void): ClapTrap(), ScavTrap(), FragTrap()
 {
 	ClapTrap::name_ = name_ + "_clap_name";
-	hitPoint_ = F_HP;
-	energyPoint_ = S_EP;
-	attackDamage_ = F_AD;
+	hitPoint_ = FragTrap::getHp();	// 100
+	energyPoint_ = ScavTrap::getEp();	// 50
+	attackDamage_ = FragTrap::getAd();	// 30
 	std::cout << "[ DiamondTrap is created. ]" << std::endl;
 }
 
@@ -17,9 +25,9 @@ DiamondTrap::DiamondTrap(std::string _name): ClapTrap(), ScavTrap(), FragTrap()
 {
 	name_ = _name;
 	ClapTrap::name_ = name_ + "_clap_name";
-	hitPoint_ = F_HP;
-	energyPoint_ = S_EP;
-	attackDamage_ = F_AD;
+	hitPoint_ = FragTrap::getHp();	// 100
+	energyPoint_ = ScavTrap::getEp();	// 50
+	attackDamage_ = FragTrap::getAd();	// 30
 	std::cout << "[ DiamondTrap \"" << name_ << "\" is created. ]" << std::endl;
 }
 
@@ -53,12 +61,26 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &target)
 	return (*this);
 }
 
+int DiamondTrap::getHp() const
+{
+	return (hitPoint_);
+}
+
+unsigned int DiamondTrap::getEp() const
+{
+	return (energyPoint_);
+}
+
+unsigned int DiamondTrap::getAd() const
+{
+	return (attackDamage_);
+}
+
+
 void DiamondTrap::whoAmI()
 {
 	std::cout << "[ whoAmI? : My name is \"" << name_ << "\"";
 	std::cout << "and my claptrap name is " <<  ClapTrap::name_ << " ]" << std::endl;
-
-
 }
 
 

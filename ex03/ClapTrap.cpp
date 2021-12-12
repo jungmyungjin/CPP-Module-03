@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mjung <mjung@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/12 15:12:21 by mjung             #+#    #+#             */
+/*   Updated: 2021/12/12 15:12:22 by mjung            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ClapTrap.hpp"
 
 //  생성자
@@ -101,3 +113,23 @@ void ClapTrap::printName()
 	std::cout << "<" << "ClapTrap" << " \"";
 	std::cout << name_ << "\" > ";
 }
+
+int ClapTrap::getHp() const
+{
+	return (hitPoint_);
+}
+
+unsigned int ClapTrap::getEp() const
+{
+	return (energyPoint_);
+}
+
+unsigned int ClapTrap::getAd() const
+{
+	return (attackDamage_);
+}
+
+
+
+
+
